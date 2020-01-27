@@ -36,8 +36,9 @@ $(document).ready(function(){
             }
             personas.append("</tr>\n");
 
-        }).catch(function(e){
-            var respuesta = e.responseText;
+        }).fail(function(jqXHR, textStatus, errorThrown){
+            var respuesta = jqXHR.responseJSON.valueOf().message;
+            alert(respuesta);
         });
     })
 });
